@@ -24,7 +24,7 @@ module.exports = {
                 secure: true, // SSL
                 auth:  {
                     user: 'gmanriqe@gmail.com',
-                    pass: 'DEVELOPERhasmagicandrunstheworld'
+                    pass: ''
                 }
             }
         );

@@ -63,6 +63,9 @@ $max-width: 1200px;
             color: hsl(100,100%,100%);
             font-size: 2.1em;
             margin: 0;
+            @media screen and (min-width: 768px){
+                font-size: 3.1em;
+            }
         }
     }
 }
@@ -71,12 +74,27 @@ $max-width: 1200px;
 .main-history {
     margin: $gutter*2 0;
     .history {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
         &__title {
             text-align: center;
         }
         &__text {
             color: $fifth-color;
             font-size: $m;
+        }
+        &__image {
+            text-align: center;
+        }
+        &__data,
+        &__image {
+            @media screen and (min-width: 768px) {
+                width: 48%;
+            }
         }
     }
 }
@@ -88,31 +106,41 @@ $max-width: 1200px;
     .main-services__title {
         text-align: center;
     }
-    .services {
-        display: flex;
-        align-items: center;
-        &__image,
-        &__title,
-        &__text {
-            color:hsl(100,100%,100%);
+    .service {
+        @media screen and (min-width: 768px){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        &__image {
-            display: inline-block;
-            color: $fourty-color;
-            text-align: center;
-            font-size: 28px;
-        }
-        &__data {
-            margin-left: .5em;
-        }
-        &__title {
-            margin: 0;
-        }
-        &__text {
-            margin: 0;
-        }
-        &:not(:last-child){
-            margin-bottom: 1.5em;
+        .services {
+            display: flex;
+            align-items: center;
+            @media screen and (min-width: 768px){
+                width: 49%;
+            }
+            &__image,
+            &__title,
+            &__text {
+                color:hsl(100,100%,100%);
+            }
+            &__image {
+                display: inline-block;
+                color: $fourty-color;
+                text-align: center;
+                font-size: 28px;
+            }
+            &__data {
+                margin-left: .5em;
+            }
+            &__title {
+                margin: 0;
+            }
+            &__text {
+                margin: 0;
+            }
+            &:not(:last-child){
+                margin-bottom: 1.5em;
+            }
         }
     }
 }
@@ -124,12 +152,23 @@ $max-width: 1200px;
         text-align: center;
     }
     .package {
+        @media screen and (min-width: 768px){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
         &__container {
             border-radius: 5px;
             border: 1px dashed $sixth-color;
-            padding: .5em;
+            padding: .8em;
             &:not(:last-child){
                 margin-bottom: 1em;
+                @media screen and (min-width: 768px){
+                    margin-bottom: 0;
+                }
+            }
+            @media screen and (min-width: 768px){
+                width: 32%;
             }
         }
         &__image {
@@ -140,12 +179,17 @@ $max-width: 1200px;
         }
         &__text {
             margin-bottom: 0;
+            color: $fifth-color;
         }
         &__price {
-
+            display: block;
+            text-align: center;
+            font-size: $l;
         }
         &__button {
             text-align: center;
         }
     }
 }
+
+//team
