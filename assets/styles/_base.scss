@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 13px;
+    font-family: $font-family;
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "school-children",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "jesusgonzales"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "school-children"
+  ],
+  "homepage": "https://github.com/gmanriqe/school-children",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

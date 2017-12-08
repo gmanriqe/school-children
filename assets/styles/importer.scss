@@ -1,0 +1,151 @@
+/** Declarando Variables **/
+
+// Paleta de color (como minimo 3 colores)
+$primary-color: #362627;
+$secondary-color: #482f31;
+$third-color: #482f31;
+$fourty-color: #ffdb5e;
+$fifth-color: #787878;
+$sixth-color: #dddfe2;
+
+$bgc-primary-color: #fcf5d6;
+$bgc-secondary-color: #3185cc;
+
+$xl: 24px;
+$l: 20px;
+$m: 16px;
+$s: 13px;
+$xs: 11px;
+
+$font-family: 'Signika', sans-serif;
+
+$gutter: 16px;
+$max-width: 1200px;
+
+//normalize
+@import '_normalize.scss';
+//base
+@import '_base.scss';
+//layout
+@import '_layout.scss';
+//modules
+@import '_modules.scss';
+
+//header
+.main-header {
+    background-color: $primary-color;
+    padding: $gutter 0;
+    .main-header__logo {
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        .logo {
+            display: block;
+        }
+    }
+    .contact {
+        display: none;
+        &__title,
+        &__phone {
+            color: hsl(100,100%,100%);
+        }
+    }
+}
+
+//banner
+.main-banner {
+    padding: 20em 0;
+    background: url('http://mydoggy.rocks/wp-content/uploads/2015/02/French-Bulldog-in-grass.jpg') center/cover no-repeat;
+    position: relative;
+    .main-banner__data {
+        display: inline-block;
+        .main-banner__title {
+            color: hsl(100,100%,100%);
+            font-size: 2.1em;
+            margin: 0;
+        }
+    }
+}
+
+//history
+.main-history {
+    margin: $gutter*2 0;
+    .history {
+        &__title {
+            text-align: center;
+        }
+        &__text {
+            color: $fifth-color;
+            font-size: $m;
+        }
+    }
+}
+
+//services
+.main-services {
+    background: url('http://pets-grooming.axiomthemes.com/wp-content/uploads/2016/07/background-6.jpg?id=211')center/cover repeat;
+    padding: $gutter*2 0;
+    .main-services__title {
+        text-align: center;
+    }
+    .services {
+        display: flex;
+        align-items: center;
+        &__image,
+        &__title,
+        &__text {
+            color:hsl(100,100%,100%);
+        }
+        &__image {
+            display: inline-block;
+            color: $fourty-color;
+            text-align: center;
+            font-size: 28px;
+        }
+        &__data {
+            margin-left: .5em;
+        }
+        &__title {
+            margin: 0;
+        }
+        &__text {
+            margin: 0;
+        }
+        &:not(:last-child){
+            margin-bottom: 1.5em;
+        }
+    }
+}
+
+//packages
+.main-packages {
+    padding: $gutter*2 0;
+    &__title {
+        text-align: center;
+    }
+    .package {
+        &__container {
+            border-radius: 5px;
+            border: 1px dashed $sixth-color;
+            padding: .5em;
+            &:not(:last-child){
+                margin-bottom: 1em;
+            }
+        }
+        &__image {
+
+        }
+        &__title {
+            margin: .5em 0;
+        }
+        &__text {
+            margin-bottom: 0;
+        }
+        &__price {
+
+        }
+        &__button {
+            text-align: center;
+        }
+    }
+}
