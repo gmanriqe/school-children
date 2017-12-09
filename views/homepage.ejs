@@ -183,8 +183,8 @@
         </div>
     </div>        
 </section>
- 
-<section class="main-contact">
+
+<!-- <section class="main-contact">
     <h1>Contactanos</h1>
      <form action="/contact" method="POST">
         <label for="">nombre</label>
@@ -197,8 +197,43 @@
         <input type="text" name="asunto"><br>
         <input type="submit">
      </form>
-</section>
-<a href="https://www.pinterest.es/pin/520306563193575490/" target="_blank"> Site Mockups</a>
+</section> -->
+
+<footer class="main-footer">
+    <div class="main-container">
+        <div class="footer">
+            <div class="footer__item footer--logo">
+                <img src="../images/logo-white.png" alt="" class="footer__logo">
+            </div>
+            <div class="footer__item">
+                <h3 class="footer__title">Contactanos</h3>
+                <ul class="footer__list">
+                    <li class="footer__list"><a href="" class="icon-envelope footer__link">happypet@info.com</a></li>
+                    <li class="footer__list"><a href="" class="icon-phone footer__link">987 654 321 | 987 123 456</a></li>
+                    <li class="footer__list"><a href="" class="icon-location footer__link">Av. San Martin 190</a></li>
+                </ul>
+            </div>
+            <div class="footer__item">
+                <h3 class="footer__title">Sobre Nosotros</h3>
+                <p class="footer__text">Your pet is in good hands with our team of professional groomers. We offer only top quality service.</p>
+            </div>
+            <div class="footer__item">
+                <h3 class="footer__title">Suscribete</h3>
+                <p class="footer__text"> Recibe nuestras novedades en tu correo.</p>
+                <p class="footer__text">Ingresa tu correo</p>
+                <input type="email" class="footer__email" required>
+                <input type="submit" class="button footer--form">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="main-site">
+    <div class="main-container">
+        <a href="https://www.pinterest.es/pin/520306563193575490/" target="_blank" class="site"> Site Mockups</a>
+    </div>
+</div>
+
 <script src="./js/library/jquery.min.js"></script>
 <script>
     var toggle = document.getElementById('toggle-menu');
@@ -208,7 +243,7 @@
         nav.classList.toggle('show');
     });
 
-    //menu
+    //sticky menu
     $scrollPosition = $(window).scrollTop();
     console.log($scrollPosition + ' scrollTop');
     $(window).bind('scroll', () => {

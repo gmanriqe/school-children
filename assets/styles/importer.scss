@@ -3,7 +3,7 @@
 // Paleta de color (como minimo 3 colores)
 $primary-color: #362627;
 $secondary-color: #482f31;
-$third-color: #482f31;
+$third-color: #291c1e;
 $fourty-color: #ffdb5e;
 $fifth-color: #787878;
 $sixth-color: #dddfe2;
@@ -28,7 +28,6 @@ $max-width: 1200px;
 @import '_layout.scss';
 //modules
 @import '_modules.scss';
-
 
 
 //header
@@ -407,4 +406,97 @@ $max-width: 1200px;
             }
         }
     }
+}
+
+// .main-mapa {
+//     position: relative;
+//     .main-container {
+//         .contact {
+//             background-color: $seventh-color;
+//             position: absolute;
+//             top: 0;
+//             // right: 0;
+//         }
+//     }
+// }
+
+//footer 
+.main-footer {
+    padding: $gutter*2 0;
+    background-color: $primary-color;
+    .footer {
+        @media screen and (min-width: 640px){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        &__logo {
+            display: block;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            @media screen and (min-width: 640px){
+                width: 70%;
+                margin: 0;
+            }
+        }
+        &__link,
+        &__text,
+        &__label {
+            color: hsl(100,100%,100%);
+            font-size: $s;
+        }
+        &__title {
+            margin: 0 0 .2em 0;
+            color: $seventh-color;
+        }
+        &__list {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style-type: none;
+        }
+        &__item {
+            list-style-type: none;
+            @media screen and (min-width: 640px){
+                width: 49%;
+            }
+            @media screen and (min-width: 768px){
+                width: 24%;
+            }
+            &:not(:last-child){
+                margin-bottom: .4em;
+            }
+        }
+        &__link {
+            text-decoration: none;
+            &::before {
+                margin-right: .3em;
+            }
+        }
+        &__text {
+            margin: 0;
+        }
+        &__label {
+            display: block;
+        }
+        &__email {
+            display: inline-block;
+            padding: 6px 12px;
+        }
+        &--form {
+            padding: .7em 1.6em;
+            margin-left: 5px;
+        }
+        &--logo {
+            @media screen and (min-width: 640px){
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+//site
+.main-site {
+    background-color: $third-color;
 }
