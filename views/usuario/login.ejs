@@ -1,0 +1,31 @@
+
+
+<div id="content" class="main-login">
+    <div class="main-container">
+        <div class="login__container">
+            <div class="login__title">
+                <% if(typeof error != 'undefined'){ %>
+                        <p><%= error %></p>
+                <% } %>
+            </div>
+            <form class="login__form" action="/formLoginUser" method="POST">
+                <div class="login__group">
+                    <label class="login__label" for="usuario">usuario</label>
+                    <input class="login__input" id="usuario" type="text" name="usuario" autofocus required/>
+                </div>
+                <div class="login__group">
+                    <label class="login__label" for="contrasena">contraseña</label>
+                    <input class="login__input"id="contrasena" type="password" name="contrasena" required/>
+                </div>
+                <div class="login__group">
+                    
+                    <label for="checked"><input id="checked"type="checkbox">Recordar</label>
+                    <a href="#" class="login__recover">¿Olvidaste tu contraseña?</a>
+                </div>
+                <input class="button" type="submit" value="Ingresar"/>
+            </form>
+            <p class="login__notaccount">¿No tienes cuenta?<a href="/register" class="login__register">Registrate</a></p>
+        </div>    
+    </div>
+</div>
+

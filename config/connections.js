@@ -45,7 +45,7 @@ module.exports.connections = {
     host: 'localhost',
     user: 'root',
     password: 'facil123',
-    database: 'school'
+    database: 'pet'
   },
 
   /***************************************************************************

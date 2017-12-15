@@ -1,0 +1,23 @@
+<footer id="footer" class="main-partial-footer" style="background-color: #362627">
+    <div class="main-container">
+        <strong style="color: #fff">Happy Pet | Powered by <a href="#">GManriqe</a></strong></p>
+    </div>
+</footer>
+
+<script>
+    var getBody = document.getElementsByTagName("body")[0];
+    
+    getBody.setAttribute("id","body");
+
+    var body = document.getElementById('body'),
+        header = document.getElementById('header'),
+        footer = document.getElementById('footer'),
+        content = document.getElementById('content');
+
+    console.log(content);
+    var height = body.offsetHeight - (header.offsetHeight + footer.offsetHeight);
+    console.log(height);
+    
+    content.style.minHeight = height + "px";
+
+</script>

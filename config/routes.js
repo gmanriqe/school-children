@@ -36,11 +36,24 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'POST /contact': {
-    controller: 'ContactController',
-    action: 'fnFormContactanos'
-  }
+  //Contactanos
+  'POST /contact': { controller: 'ContactController',action: 'fnFormContactanos' },
 
+  //Usuario
+  'GET /login': { controller: 'UsuarioController', action: 'fnViewLogin' },
+  'GET /register': { controller: 'UsuarioController', action: 'fnRegisterUsuario' },
+  'POST /formuser': { controller: 'UsuarioController', action: 'fnFormUser' },
+  'POST /formLoginUser': { controller: 'UsuarioController', action: 'fnFormLoginUser' },
+  'GET /listuser': { controller: 'UsuarioController', action: 'fnListUser' },
+  'GET /editusu/:id': { controller: 'UsuarioController', action: 'fnEditUser' },
+  'POST /formUpdUsu' : { controller: 'UsuarioController', action: 'fnFormUpdUsu' },
+
+  //PET
+  'GET /listPet': { controller: 'PetController', action: 'fnListPet' },
+  'GET /addPet': { controller: 'PetController', action: 'fnAddPet' },
+  'POST /formregisterpet': { controller: 'PetController', action: 'formRegisterPet' },
+
+  'POST /searchAjax': { controller: 'PetController', action: 'fnSearchAjax' },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

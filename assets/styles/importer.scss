@@ -29,6 +29,13 @@ $max-width: 1200px;
 //modules
 @import '_modules.scss';
 
+//JS
+#body {
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+    flex-direction: column;
+}
 
 //header
 .main-header {
@@ -499,4 +506,90 @@ $max-width: 1200px;
 //site
 .main-site {
     background-color: $third-color;
+}
+
+//partials-header
+.main-partials-header {
+    padding: $gutter 0;
+    .partials__logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            display: block;
+            width: 40%;
+        }
+    }
+}
+//partials-footer
+
+//login
+.main-login {
+    padding: $gutter*2 0;
+    display: flex;
+    align-items: center;
+    .login__container {
+        border: 1px dashed $sixth-color;
+        border-top: 3px solid $seventh-color;
+        padding: .8em;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        @media screen and (min-width: 480px){
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media screen and (min-width: 740px){
+            width: 60%;
+        }
+        @media screen and (min-width: 1024px){ 
+            width: 40%;
+        }
+    }
+    .login__title {
+        text-align: center;
+    }
+    .login__form {
+       
+    }
+    .login__group {
+        margin-bottom: $gutter;
+        &:nth-child(3)  {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .login__label {
+        display: block;
+        font-size: $m;
+        font-weight: 300;
+        color: $fifth-color;
+        margin-bottom: 0;
+    }
+    .login__input {
+        border-radius: 3px;
+        font-size: $m;
+        outline: none;
+        padding: 5px 7px;
+        display: block;
+        width: 100%;
+    }
+    .login__recover {
+        font-weight: 700;
+    }
+    .login__notaccount {
+        display: inline-block;
+        padding-top: $gutter; 
+    }
+    .login__register {
+        margin-left: .3em;
+        font-weight: 700;
+    }
+}
+
+//register
+.main-register {
+    padding: $gutter*2 0;
 }

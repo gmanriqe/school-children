@@ -1,0 +1,62 @@
+<div class="container">
+    <h1>listado de mascotas</h1>
+    <form class="form">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-10 col-md-10">
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                </div>
+                <div class="col-xs-1 col-md-2">
+                    <button type="submit" class="btn btn-info" name="button">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <p class="message"></p>
+    <a href="/addPet" class="btn btn-info">Agregar Mascota</a>
+    
+    <div class="row">
+        <% regs.forEach(function(reg){%>
+            <div class="col-xs-10 col-sm-6 col-md-4">
+                <div class="card">
+                    <h3><a href="/book/<%= reg.id %>"><%= reg.tipomascota %></a></h3>
+                    <p><%= reg.raza %> - <%= reg.nombre %></p>
+                    <div class="actions">
+                        <a href="/book/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
+                        <a href="/book/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous">
+</script>
+
+<script>    
+    function onReady() {
+    $(".form").on("submit", function(e) {
+        var nombre = $("#nombre").val();
+        console.log(nombre);
+        $.post(
+        "/searchAjax",
+        {
+             nombre: nombre
+        },
+        function(data) {
+            console.log(data+'vista');
+            $(".message").html(data);
+        }
+        );
+
+        e.preventDefault();
+    });
+    }
+
+    $(document).ready(onReady);
+</script>

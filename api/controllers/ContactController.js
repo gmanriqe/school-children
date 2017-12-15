@@ -47,6 +47,6 @@ module.exports = {
                 console.log(regs + 'regs');
                 console.log(nodemailer+'nodemailer');
             })
-    }
+    },
 };
 
