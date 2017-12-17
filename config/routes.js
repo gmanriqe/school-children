@@ -36,10 +36,10 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  //Contactanos
+  //CONTACTANOS
   'POST /contact': { controller: 'ContactController',action: 'fnFormContactanos' },
 
-  //Usuario
+  //USUARIO
   'GET /login': { controller: 'UsuarioController', action: 'fnViewLogin' },
   'GET /register': { controller: 'UsuarioController', action: 'fnRegisterUsuario' },
   'POST /formuser': { controller: 'UsuarioController', action: 'fnFormUser' },
@@ -54,6 +54,17 @@ module.exports.routes = {
   'POST /formregisterpet': { controller: 'PetController', action: 'formRegisterPet' },
 
   'POST /searchAjax': { controller: 'PetController', action: 'fnSearchAjax' },
+
+  //HISTORIAL
+  'GET /listHistoriaClinica': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinica' },
+  'GET /addHistorialClinico': { controller: 'HistoriaclinicaController', action: 'fnAddHistorialClinico' },
+  'POST /formRegisterHistorial': { controller: 'HistoriaclinicaController', action: 'formRegisterHistorial' },
+
+  //PROMOCION
+  'GET /listRegisterPromo' : { controller: 'PromocionController', action: 'listRegisterPromo' },
+  'GET /formAddRegisterPromo': { controller: 'PromocionController', action: 'formAddRegisterPromo' },
+  'POST /formRegisterPromo': { controller: 'PromocionController', action: 'formRegisterPromo' },
+  'GET /listRegisterPromo/edit/:id' : { controller: 'PromocionController', action: 'formRegisterPromo' }
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

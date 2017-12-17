@@ -1,12 +1,12 @@
 /**
-* Pet.js
+* Historiaclinica.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
-
+var moment = require('moment');
 module.exports = {
-  tableName: 'Pet',
+  tableName: 'Historiaclinica',
   attributes: {
     id: {
       primaryKey: true,
@@ -14,19 +14,17 @@ module.exports = {
       type: 'integer',
       unique: true,
     },
-    tipomascota: 'string',
-    nombre: 'string',
-    raza: 'string',
-    fecregistro: {
-      type: 'date'
+    motivoconsulta: 'string',
+    fecatencion: {
+      type: 'datetime',
+      defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss")
     },
-    historiasclinicas: {
-      collection: 'Historiaclinica',
-      via: 'pet' //campo por el que relacionas
+    receta: 'string',
+    precioconsulta: {
+      type: 'float',
     },
-    citasspa: {
-      collection: 'Citaspa',
-      via: 'pet' //campo por el que relacionas
+    pet: {
+      model: 'Pet'
     }
   }
 };

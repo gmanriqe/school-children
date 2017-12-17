@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h3>Promociones Vigentes</h3>
+    <a href="/formAddRegisterPromo" class="btn btn-info pull-right">Agregar Promoción</a>
+    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre promoción</th>
+                    <th>Descripcion</th>
+                    <th>Fec. Creación</th>
+                    <th>Precio (S/.)</th>
+                    <th>Habilitado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% regs.forEach(function(reg){ %>
+                    <tr>
+                        <td><%=reg.nombrepromocion %></td>
+                        <td><%= reg.descripcion %></td>
+                        <td><%= reg.feccreacion %></td>
+                        <td><%= reg.price %></td>
+                        <% if( reg.habilitado ) {%>
+                            <td> Promoción Activa</td>
+                        <% } else {%>
+                            <td> Promoción Desactiva</td>
+                        <% } %>
+                        <td>
+                            <a href="/listRegisterPromo/edit/<%= reg.id %>" class="btn btn-warning">Editar</a>
+                            <a href="/listRegisterPromo/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+    </table>
+</div>
