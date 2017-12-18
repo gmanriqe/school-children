@@ -1,6 +1,6 @@
 <div class="container">
     <h3>Editar Promoción</h3>
-    <form action="/UpdateRegisterPromo" method="POST">
+    <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
         <div class="form-group">
             <div class="row">
                 <div class="col-xs-4 col-md-2">
@@ -34,8 +34,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-xs-12 col-md-12">
-                    <label for="habilitado"><input type="checkbox" name="habilitado" id="habilitado" class="form-check-input" value="<%= regs.habilitado%>" 
-                        <%= regs.habilitado?"checked":""%> > Habilitar Promocion</label>    
+                    <label for="habilitado">
+                        <input id="checked" type="checkbox" name="habilitado" id="habilitado" class="form-check-input" value="<%= regs.habilitado%>" 
+                        <%= regs.habilitado?"checked":""%>> Habilitar Promocion
+                    </label>    
                 </div>
             </div>
         </div>
@@ -44,3 +46,20 @@
         </div>
     </form>
 </div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+    function onReady(){
+        $('#checked').on('click', function(){
+            if( $(this).val() == 'true'){
+                $(this).attr("value",false);
+            }else {
+                $(this).attr("value",true);
+            }
+        })
+    }
+    $(document).ready(onReady);
+</script>

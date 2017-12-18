@@ -30,7 +30,7 @@ module.exports = {
     },
     habilitado: {
       type: "boolean",
-      defaultsTo: '0'
+      defaultsTo: true
     }
   }
 };

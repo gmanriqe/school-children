@@ -1,5 +1,5 @@
 {
-  "name": "school-children",
+  "name": "site_test06",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -36,7 +36,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jesusgonzales/school-children.git"
+    "url": "git://github.com/gmanriqe/site_test06.git"
   },
   "author": "jesusgonzales",
   "license": ""

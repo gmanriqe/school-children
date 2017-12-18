@@ -1,6 +1,10 @@
 
 <div class="container">
     <h3>Promociones Vigentes</h3>
+    <% if( typeof msg != 'undefined') { %>
+    <p>mensaje: <strong><%= msg%></strong>
+    <% } %>
+    </p>
     <a href="/formAddRegisterPromo" class="btn btn-info pull-right">Agregar Promoción</a>
     <table class="table table-striped">
             <thead>
@@ -26,8 +30,8 @@
                             <td> Promoción Desactiva</td>
                         <% } %>
                         <td>
-                            <a href="/listRegisterPromo/edit/<%= reg.id %>" class="btn btn-warning">Editar</a>
-                            <a href="/listRegisterPromo/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
+                            <a href="/promocion/editar/<%= reg.id %>" class="btn btn-warning">Editar</a>
+                            <a href="/promocion/eliminar/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>
                     <% }) %>

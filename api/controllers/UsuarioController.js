@@ -62,7 +62,7 @@ module.exports = {
             })
     },
     fnFormUpdUsu:(req,res)=>{
-       var filtro = { id : req.params.id } 
+       var filtro = { id :  req.params.id} 
         var campos = {      
             nombre:req.body.nombre,
             direccion:req.body.direccion,
@@ -71,9 +71,6 @@ module.exports = {
             usuario:req.body.usuario,
             contrasena:req.body.contrasena
         }
-
-        // console.log(filtro + 'filtrooooo');
-        console.log(campos);
         Usuario
             .update(filtro, campos)
             .then((regs)=>{

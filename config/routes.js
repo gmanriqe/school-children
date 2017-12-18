@@ -53,6 +53,7 @@ module.exports.routes = {
   'GET /addPet': { controller: 'PetController', action: 'fnAddPet' },
   'POST /formregisterpet': { controller: 'PetController', action: 'formRegisterPet' },
 
+  //SEARCH AJAX
   'POST /searchAjax': { controller: 'PetController', action: 'fnSearchAjax' },
 
   //HISTORIAL
@@ -64,7 +65,8 @@ module.exports.routes = {
   'GET /listRegisterPromo' : { controller: 'PromocionController', action: 'listRegisterPromo' },
   'GET /formAddRegisterPromo': { controller: 'PromocionController', action: 'formAddRegisterPromo' },
   'POST /formRegisterPromo': { controller: 'PromocionController', action: 'formRegisterPromo' },
-  'GET /listRegisterPromo/edit/:id' : { controller: 'PromocionController', action: 'formRegisterPromo' }
+  'GET /promocion/editar/:id' : { controller: 'PromocionController', action: 'editar' },
+  'POST /promocion/actualizar/:id' : { controller: 'PromocionController', action: 'actualizar'},
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
