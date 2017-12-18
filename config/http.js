@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.http.html
  */
-
+var flash = require('connect-flash');
 module.exports.http = {
 
   /****************************************************************************
@@ -24,6 +24,8 @@ module.exports.http = {
   middleware: {
     passportInit    : require('passport').initialize(),
     passportSession : require('passport').session(),
+
+    flash:flash(),
   /***************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
@@ -39,6 +41,7 @@ module.exports.http = {
       'passportSession', 
       'myRequestLogger',
       'bodyParser',
+      'flash',
       'handleBodyParserError',
       'compress',
       'methodOverride',

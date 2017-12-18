@@ -9,11 +9,11 @@ module.exports = {
     listRegisterPromo: (req, res) => {
         Promocion
             .find({
-                // habilitado: true
+                habilitado: true
             })
             .then(function(regs){
                 // console.log(regs);
-                res.view('promociones/listpromo',{regs:regs});
+                res.view('promociones/listpromo',{regs:regs,  messages: req.flash('info')});
             })
     },
     formAddRegisterPromo: function(req, res){
@@ -56,8 +56,9 @@ module.exports = {
         Promocion
             .update(filtro, campos)
             .then(function(regs){
-                res.view('promociones/listpromo',{regs:regs, msg: 'Se actualizo el registro seleccionado'});
-                
+                req.flash('info', 'Se modifico el dato correctamente. Flash!')
+                // res.view('promociones/listpromo',{regs:regs, messages: req.flash('info') });
+                res.redirect('/listRegisterPromo');
             })
             console.log(campos);
     }

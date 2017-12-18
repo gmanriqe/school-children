@@ -1,8 +1,9 @@
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+<% include ../partials/header %>
 <div class="container">
     <h3>Promociones Vigentes</h3>
-    <% if( typeof msg != 'undefined') { %>
-    <p>mensaje: <strong><%= msg%></strong>
+    <% if(messages) { %>
+    <p>mensaje: <strong><%= messages%></strong>
     <% } %>
     </p>
     <a href="/formAddRegisterPromo" class="btn btn-info pull-right">Agregar Promoción</a>
@@ -38,3 +39,27 @@
                 </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="/js/library/noty.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/jquery.noty.js"></script>
+<script>
+if(typeof jQuery != 'undefined'){
+    new Noty({
+        type: 'success', //alert, success, warning, error, info
+        theme: 'relax',
+        layout: 'topRight',
+        text: 'Some notification text',
+        animation: {
+            open: 'animated slideInDown', // in order to use this you'll need animate.css
+            close: 'animated bounceOutRight',
+            easing: 'swing',
+            speed: 5
+        }
+}).show();
+}
+</script>
