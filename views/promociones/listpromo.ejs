@@ -1,44 +1,55 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+<% if(messages.length > 0) { %>
+<p>mensaje: <strong><%= messages%></strong>
+<% } %>
+</p>
 <div class="container">
     <div class="row">
-        <div class="card-box">
-            <h3>Promociones Vigentes</h3>
-            <% if(messages) { %>
-            <p>mensaje: <strong><%= messages%></strong>
-            <% } %>
-            </p>
-            <a href="/formAddRegisterPromo" class="btn btn-info pull-right">Agregar Promoción</a>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre promoción</th>
-                        <th>Descripcion</th>
-                        <!-- <th>Fec. Creación</th> -->
-                        <th>Precio (S/.)</th>
-                        <th>Habilitado</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% regs.forEach(function(reg){ %>
-                    <tr>
-                        <td><%=reg.nombrepromocion %></td>
-                        <td><%= reg.descripcion %></td>
-                        <!-- <td><%= reg.feccreacion %></td> -->
-                        <td><%= reg.price %></td>
-                        <% if( reg.habilitado ) {%>
-                            <td> Promoción Activa</td>
-                        <% } else {%>
-                            <td> Promoción Desactiva</td>
-                        <% } %>
-                        <td>
-                            <a href="/promocion/editar/<%= reg.id %>" class="btn btn-warning">Editar</a> &nbsp;&nbsp;
-                            <a href="/promocion/eliminar/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
-                        </td>
-                    </tr>
-                    <% }) %>
-                </tbody>
-            </table>
+        <div class="panel-default">
+            <div class="panel-heading">
+                <a href="/formAddRegisterPromo" class="btn btn-primary">Nuevo</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Promociones Vigentes</h3>
+            </div>
+            <div class="panel-body">
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Promoción</th>
+                                    <th>Descripción</th>
+                                    <!-- <th>Fec. Creación</th> -->
+                                    <th>Precio (S/.)</th>
+                                    <th>Habilitado</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% regs.forEach(function(reg){ %>
+                                <tr>
+                                    <td><%=reg.nombrepromocion %></td>
+                                    <td><%= reg.descripcion %></td>
+                                    <!-- <td><%= reg.feccreacion %></td> -->
+                                    <td><%= reg.price %></td>
+                                    <% if( reg.habilitado ) {%>
+                                        <td> Promoción Activa</td>
+                                    <% } else {%>
+                                        <td> Promoción Desactiva</td>
+                                    <% } %>
+                                    <td>
+                                        <a href="/promocion/editar/<%= reg.id %>" class="btn btn-warning">Editar</a> &nbsp;&nbsp;
+                                        <a href="/promocion/eliminar/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+            </div>
         </div>
     </div>
 </div>

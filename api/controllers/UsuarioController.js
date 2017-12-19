@@ -6,7 +6,7 @@
  */
 module.exports = {
     fnViewLogin: (req, res)=> res.view('usuario/login'),
-    fnRegisterUsuario: (req, res)=> res.view('usuario/register'),
+    fnRegisterUsuario: (req, res)=> res.view('usuario/register',{layout:'layout/layout-dashboard'}),
     
     fnFormUser:(req, res)=>{
        var usuario = {
@@ -17,7 +17,6 @@ module.exports = {
            usuario:req.body.usuario,
            contrasena:req.body.contrasena
        }
-
        Usuario
             .create(usuario)
             .then((regs)=>{
@@ -31,14 +30,13 @@ module.exports = {
         Usuario
             .findOne({ usuario:req.body.usuario,contrasena:req.body.contrasena})
             .then(function(data){
-                if(!data) return res.view('usuario/login', {error: 'Usuario o contraseña invalidos'});
+                if(!data) return res.view('usuario/login', {layout:'layout/layout-dashboard', error: 'Usuario o contraseña invalidos'});
                 //corregir codigo ya que todos redireccionan a la misma vista
                 if(data.tipousuario == 'ad'){
-                    res.view('usuario/viewadmin');
+                    res.view('usuario/viewadmin',{layout:'layout/layout-dashboard'});
                 }else {
-                    res.view('usuario/viewadmin');
+                    res.view('usuario/viewadmin',{layout:'layout/layout-dashboard'});
                 }
-                console.log(data);
             })
             .catch(function(err){
                 console.log(err);
@@ -48,7 +46,6 @@ module.exports = {
         Usuario
             .find()
             .then((datas)=>{
-                console.log(datas);
                 res.view('usuario/listusu',{datas:datas, layout: 'layout/layout-dashboard'}); 
             })
     },
@@ -57,8 +54,7 @@ module.exports = {
         Usuario
             .find(userData)
             .then((regs)=>{
-                console.log(regs);
-                res.view('editusu',{regs:regs[0]});
+                res.view('usuario/editusu',{regs:regs[0], layout: 'layout/layout-dashboard'});
             })
     },
     fnFormUpdUsu:(req,res)=>{

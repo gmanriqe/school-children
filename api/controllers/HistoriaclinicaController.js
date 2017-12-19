@@ -11,7 +11,6 @@ module.exports = {
             .find({sort: 'fecatencion DESC'})
             .populate('pet')
             .then(function(regs){
-                console.log(regs);
                 res.view('historial/listhistorial',{regs:regs, layout: 'layout/layout-dashboard'});
             })
             .catch(function(err){
@@ -46,7 +45,23 @@ module.exports = {
                 console.log(err);
             })
 
-    }
+    },
+    fnListHistoriaClinicaDiaria: (req, res) => {
+        var horaDelDia = new Date();
+        var nuevaHoraDelDia = horaDelDia.getFullYear()+'-'+ (horaDelDia.getMonth()+1)+'-'+ horaDelDia.getDate();
+        Historiaclinica
+            .find()
+            .where({
+                'fecatencion': {'like': nuevaHoraDelDia+'%'}
+            })
+            .populate('pet')
+            .exec(function cb(err, regs){
+                console.log(regs);
+                if(err) return 
+                res.view('historial/listhistorialdia', { regs:regs, layout: 'layout/layout-dashboard' });
+            })
+
+    } 
 
 
     // find: function(req, res){

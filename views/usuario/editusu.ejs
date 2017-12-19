@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 >Edición Usuario</h3>
+            </div>
+            <div class="panel-body">
+                <form class="register__form" action="/formUpdUsu" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">nombre</label>
+                        <input class="form-control" id="nombre" type="text" name="nombre" value="<%= regs.nombre%>"autofocus required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">direccion</label>
+                        <input class="form-control"id="direccion" type="text" name="direccion" value="<%= regs.direccion%>"required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">telefono</label>
+                        <input class="form-control"id="telefono" type="text" name="telefono" value="<%= regs.telefono%>"required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input class="form-control"id="email" type="email" name="email" value="<%= regs.email%>"required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">usuario</label>
+                        <input class="form-control"id="usuario" type="text" name="usuario" value="<%= regs.usuario%>"required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="contrasena">contraseña</label>
+                        <input class="form-control"id="contrasena" type="password" name="contrasena" value="<%= regs.contrasena%>"required/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success pull-right" type="submit" value="Guardar"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>

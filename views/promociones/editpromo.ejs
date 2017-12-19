@@ -1,52 +1,56 @@
 <div class="container">
     <div class="row">
-        <div class="card-box">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 <h3>Editar Promoción</h3>
-                <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2">
-                                <label for="nombrepromocion">Nombre promoción</label>
-                            </div>
-                            <div class="col-xd-8 col-md-10">
-                                <input type="text" name="nombrepromocion" id="nombrepromocion" class="form-control" value="<%= regs.nombrepromocion %>" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2">
-                                <label for="descripcion">Descripcion</label>
-                            </div>
-                            <div class="col-xd-8 col-md-10">
-                                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control" required><%= regs.descripcion%></textarea>
+            </div>
+            <div class="panel-body">
+                    <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2">
+                                    <label for="nombrepromocion">Nombre promoción</label>
+                                </div>
+                                <div class="col-xd-8 col-md-10">
+                                    <input type="text" name="nombrepromocion" id="nombrepromocion" class="form-control" value="<%= regs.nombrepromocion %>" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2">
-                                <label for="price">Precio</label>
-                            </div>
-                            <div class="col-xd-8 col-md-10">
-                                <input type="number" name="price" id="price" class="form-control" value="<%= regs.price%>"required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12">
-                                <label for="habilitado">
-                                    <input id="checked" type="checkbox" name="habilitado" id="habilitado" class="form-check-input" value="<%= regs.habilitado%>" 
-                                    <%= regs.habilitado?"checked":""%>> Habilitar Promocion
-                                </label>    
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2">
+                                    <label for="descripcion">Descripcion</label>
+                                </div>
+                                <div class="col-xd-8 col-md-10">
+                                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control" required><%= regs.descripcion%></textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <input type="submit" class="btn btn-success" value="Guardar">
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2">
+                                    <label for="price">Precio</label>
+                                </div>
+                                <div class="col-xd-8 col-md-10">
+                                    <input type="number" name="price" id="price" class="form-control" value="<%= regs.price%>"required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <label for="habilitado">
+                                        <input id="checked" type="checkbox" name="habilitado" id="habilitado" class="form-check-input" value="<%= regs.habilitado%>" 
+                                        <%= regs.habilitado?"checked":""%>> Habilitar Promocion
+                                    </label>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <input type="submit" class="btn btn-success" value="Guardar">
+                        </div>
+                    </form>
+            </div>
         </div>
     </div>
 </div>

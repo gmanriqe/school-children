@@ -1,0 +1,43 @@
+<div class="container">
+        <div class="row">
+            <div class="panel-default">
+                <div class="panel-heading">                    
+                    <div class="btn-toolbar">
+                        <!-- <div class="btn-group"> -->
+                            <br><button class="btn btn-sm btn-bg btn-default"><i class="fa fa-search"></i>&nbsp;Buscar Historia</button>
+                        <!-- </div> -->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Historial Clinico del Día</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mascota</th>
+                                <th>Motivo Consulta</th>
+                                <th>Fecha atencion</th>
+                                <th>Consulta (S/.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% regs.forEach(function(reg){ %>
+                                <tr>
+                                    <td><%= reg.pet.nombre%></td>
+                                    <td><%= reg.motivoconsulta%></td>
+                                    <td><%= reg.fecatencion%></td>
+                                    <td><%= reg.precioconsulta%></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

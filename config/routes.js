@@ -60,6 +60,7 @@ module.exports.routes = {
   'GET /listHistoriaClinica': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinica' },
   'GET /addHistorialClinico': { controller: 'HistoriaclinicaController', action: 'fnAddHistorialClinico' },
   'POST /formRegisterHistorial': { controller: 'HistoriaclinicaController', action: 'formRegisterHistorial' },
+  'GET /historiaclinicadiaria': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinicaDiaria' },
 
   //PROMOCION
   'GET /listRegisterPromo' : { controller: 'PromocionController', action: 'listRegisterPromo' },

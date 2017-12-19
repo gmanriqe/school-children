@@ -1,37 +1,46 @@
-<% include ../partials/header %>
-<div id="content" class="main-register">
-    <div class="main-container">
-        <div class="register">
-            <div class="register__title">
-                <h1 class="title title--black">Registro</h1>
+<div class="container">
+    <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">Usuario</div>
+                <div class="panel-body">
+                    <form action="/formuser" method="POST">
+                        <div class="form-group">
+                            <label for=""nombre"">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input type="text" class="form-control" name="direccion" placeholder="Direccion">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="text" class="form-control" name="telefono" placeholder="Telefono">
+                        </div> 
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                        </div> 
+                        <div class="form-group">
+                            <label for="usuario">Nombre Usuario</label>
+                            <input type="text" class="form-control" name="usuario" placeholder="Nombre Usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" class="form-control" name="contrasena" placeholder="Contraseña">
+                        </div> 
+                        <div class="form-group">
+                            <label>Activo</label>
+                            <div class="checkbox">
+                                <label class="">
+                                <input type="checkbox" checked><i></i> Activo
+                                </label>
+                            </div>
+                        </div>  
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success pull-right" value="Grabar">   
+                        </div>                           
+                    </form>
+                </div>
             </div>
-            <form class="register__form" action="/formuser" method="POST">
-                <div class="register__group">
-                    <label class="register__label" for="nombre">nombre</label>
-                    <input class="register__input" id="nombre" type="text" name="nombre" autofocus required/>
-                </div>
-                <div class="register__group">
-                    <label class="register__label" for="direccion">direccion</label>
-                    <input class="register__input"id="direccion" type="text" name="direccion" required/>
-                </div>
-                <div class="register__group">
-                    <label class="register__label" for="telefono">telefono</label>
-                    <input class="register__input"id="telefono" type="text" name="telefono" required/>
-                </div>
-                <div class="register__group">
-                    <label class="register__label" for="email">email</label>
-                    <input class="register__input"id="email" type="email" name="email" required/>
-                </div>
-                <div class="register__group">
-                    <label class="register__label" for="usuario">usuario</label>
-                    <input class="register__input"id="usuario" type="text" name="usuario" required/>
-                </div>
-                <div class="register__group">
-                    <label class="register__label" for="contrasena">contraseña</label>
-                    <input class="register__input"id="contrasena" type="password" name="contrasena" required/>
-                </div>
-                <input class="button" type="submit" value="Registrarse"/>
-            </form>
-        </div>    
     </div>
 </div>

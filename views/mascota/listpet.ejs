@@ -1,31 +1,51 @@
 
 <div class="container">
-    <h1>listado de mascotas</h1>
-    <form class="form">
-        <div class="form-group">
-            <div class="row">
-                <div class="col-xs-10 col-md-10">
-                    <input type="text" name="nombre" id="nombre" class="form-control">
-                </div>
-                <div class="col-xs-1 col-md-2">
-                    <button type="submit" class="btn btn-info" name="button">Buscar</button>
-                </div>
+    <div class="row">
+        <div class="panel-default">
+            <div class="panel-heading">
+                <a href="/addPet" class="btn btn-primary">Nuevo</a>
             </div>
         </div>
-    </form>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Mascotas Registradas</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-10 col-md-10">
+                                <input type="text" name="nombre" id="nombre" class="form-control">
+                            </div>
+                            <div class="col-xs-1 col-md-2">
+                                <button type="submit" class="btn btn-info" name="button">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <p class="message"></p>
-    <a href="/addPet" class="btn btn-info">Agregar Mascota</a>
     
-    <div class="row"><br>
+    
+    <div class="row">
         <% regs.forEach(function(reg){%>
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="card-box">
-                    <h3><a href="/book/<%= reg.id %>"><%= reg.tipomascota %></a></h3>
-                    <p><%= reg.raza %> - <%= reg.nombre %></p>
-                    <div class="actions">
-                        <a href="/book/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
-                        <a href="/book/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                        <h3><a href="/book/<%= reg.id %>"><%= reg.tipomascota %></a></h3>
+                        <p>Nombre: <%= reg.nombre %></p>
+                        <p>Raza: <%= reg.raza %> </p>
+                        <div class="actions">
+                            <a href="/book/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
+                            <a href="/book/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,12 @@
 <div class="container">
         <div class="row">
-            <div class="card-box">
+            <div class="panel panel-default">
+                <div class="panel-heading">
                     <h3>Editar Promoción</h3>
-                    <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
-                        <div class="form-group">
+                </div>
+                <div class="panel-body">
+                        <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
+                            <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-4 col-md-2">
                                         <label for="horarecojo">Fecha y Hora de Recojo</label>
@@ -13,35 +16,36 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-4 col-md-2">
-                                    <label for="nombre">Nombre Mascota</label>
-                                </div>
-                                <div class="col-xd-8 col-md-10">
-                                    <input type="text" name="nombre" id="nombre" class="form-control" value="<%= regs.pet.nombre %>"required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-4 col-md-2">
-                                    <label for="nombrepromocion">Promoción</label>
-                                </div>
-                                <div class="col-xd-8 col-md-10">
-                                    <!-- <input type="text" name="nombrepromocion" id="nombrepromocion" class="form-control" value="<%= regs.promocion.nombrepromocion %>"required> -->
-                                    <select name="nombrepromocion" id="nombrepromocion"  class="form-control">
-                                        <% proms.forEach(function(prom){%>
-                                        <option value="<%= prom.nombrepromocion %>"><%= prom.nombrepromocion %></option>
-                                        <% }) %>
-                                    </select>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4 col-md-2">
+                                        <label for="nombre">Nombre Mascota</label>
+                                    </div>
+                                    <div class="col-xd-8 col-md-10">
+                                        <input type="text" name="nombre" id="nombre" class="form-control" value="<%= regs.pet.nombre %>"required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group text-right">
-                            <input type="submit" class="btn btn-success" value="Guardar">
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4 col-md-2">
+                                        <label for="nombrepromocion">Promoción</label>
+                                    </div>
+                                    <div class="col-xd-8 col-md-10">
+                                        <!-- <input type="text" name="nombrepromocion" id="nombrepromocion" class="form-control" value="<%= regs.promocion.nombrepromocion %>"required> -->
+                                        <select name="nombrepromocion" id="nombrepromocion"  class="form-control">
+                                            <% proms.forEach(function(prom){%>
+                                            <option value="<%= prom.nombrepromocion %>"><%= prom.nombrepromocion %></option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <input type="submit" class="btn btn-success" value="Guardar">
+                            </div>
+                        </form>
+                </div>
             </div>
         </div>
     </div>
