@@ -9,15 +9,15 @@ module.exports = {
     listRegisterPromo: (req, res) => {
         Promocion
             .find({
-                habilitado: true
+                // habilitado: true
             })
             .then(function(regs){
                 // console.log(regs);
-                res.view('promociones/listpromo',{regs:regs,  messages: req.flash('info')});
+                res.view('promociones/listpromo',{regs:regs, layout: 'layout/layout-dashboard', messages: req.flash('info')});
             })
     },
     formAddRegisterPromo: function(req, res){
-        res.view('promociones/forminsertpromo');
+        res.view('promociones/forminsertpromo',{layout: 'layout/layout-dashboard'});
 
     },
 	formRegisterPromo: function(req, res){
@@ -41,7 +41,7 @@ module.exports = {
         Promocion
             .findOne({id:req.params.id})
             .then(function(regs){
-                res.view('promociones/editpromo',{regs:regs});
+                res.view('promociones/editpromo',{regs:regs, layout: 'layout/layout-dashboard'});
             })
     },
     actualizar: function(req, res){

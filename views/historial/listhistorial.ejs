@@ -1,25 +1,28 @@
-<% include ../partials/header %>
 <div class="container">
-    <h3>Historial Clinico</h3>
-    <a href="/addHistorialClinico" class="btn btn-info pull-right">Agregar Historial Clinico</a>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Mascota</th>
-                <th>Motivo Consulta</th>
-                <th>Fecha atencion</th>
-                <th>Consulta (S/.)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% regs.forEach(function(reg){ %>
-                <tr>
-                    <td><%= reg.pet.nombre%></td>
-                    <td><%= reg.motivoconsulta%></td>
-                    <td><%= reg.fecatencion%></td>
-                    <td><%= reg.precioconsulta%></td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="card-box">
+            <h3>Historial Clinico</h3>
+            <a href="/addHistorialClinico" class="btn btn-info pull-right">Agregar Historial Clinico</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Mascota</th>
+                        <th>Motivo Consulta</th>
+                        <th>Fecha atencion</th>
+                        <th>Consulta (S/.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% regs.forEach(function(reg){ %>
+                        <tr>
+                            <td><%= reg.pet.nombre%></td>
+                            <td><%= reg.motivoconsulta%></td>
+                            <td><%= reg.fecatencion%></td>
+                            <td><%= reg.precioconsulta%></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

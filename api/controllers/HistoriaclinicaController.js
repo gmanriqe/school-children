@@ -12,7 +12,7 @@ module.exports = {
             .populate('pet')
             .then(function(regs){
                 console.log(regs);
-                res.view('historial/listhistorial',{regs:regs});
+                res.view('historial/listhistorial',{regs:regs, layout: 'layout/layout-dashboard'});
             })
             .catch(function(err){
                 res.negociate(err);
@@ -23,7 +23,7 @@ module.exports = {
         Pet
             .find()
             .then(function(regs){
-                res.view('historial/formhistorial', {regs:regs});
+                res.view('historial/formhistorial', {regs:regs, layout: 'layout/layout-dashboard'});
             })
             .catch(function(err){
                 console.log(err);

@@ -1,29 +1,32 @@
 
-<% include ../partials/header %>
 <div id="content" class="container">
-        <h3>Usuario Inscritos</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo Usuario</th>
-                    <th>Usuario</th>
-                    <th>Contrasena</th>
-                    <!-- <th>Fec. Registho</th> -->
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% datas.forEach((data)=> {%>
-                <tr>
-                    <td><%= data.nombre%></td>
-                    <td><%= data.tipousuario%></td>
-                    <td><%= data.usuario%></td>
-                    <td><%= data.contrasena%></td>
-                    <!-- <td><%= data.fecregistro%></td> -->
-                    <td><a class="btn btn-warning" href="/editusu/<%= data.id %>">Editar</a> <a class="btn btn-danger" href="/deletUsu/<%= data.id %>">Eliminar</a></td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="card-box">
+                <h3>Usuario Inscritos</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <!-- <th>Tipo Usuario</th> -->
+                            <th>Usuario</th>
+                            <th>Contrasena</th>
+                            <!-- <th>Fec. Registho</th> -->
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% datas.forEach((data)=> {%>
+                        <tr>
+                            <td><%= data.nombre%></td>
+                            <!-- <td><%= data.tipousuario%></td> -->
+                            <td><%= data.usuario%></td>
+                            <td><%= data.contrasena%></td>
+                            <!-- <td><%= data.fecregistro%></td> -->
+                            <td><a class="btn btn-warning" href="/editusu/<%= data.id %>">Editar</a> <a class="btn btn-danger" href="/deletUsu/<%= data.id %>">Eliminar</a></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
 </div>

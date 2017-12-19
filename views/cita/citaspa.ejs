@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="card-box">
+            <h3>Citas del Dia</h3>
+            <a href="" class="btn btn-primary pull-right">Añadir Cita</a>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <!-- <th>Hora Visita</th> -->
+                        <!-- <th>Tipo Usuario</th> -->
+                        <th>Mascota</th>
+                        <th>Promocion</th>
+                        <th>Fecha y Hora</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% datas.forEach((data)=> {%>
+                    <tr>
+                        <!-- <td><%= data.tipousuario%></td> -->
+                        <td><%= datas[0].pet.nombre %></td>
+                        <td><%= datas[0].promocion.nombrepromocion %></td>
+                        <!-- <td><%= data.fecregistro%></td> -->
+                        <td><%= data.horavisita%></td>
+                        <td><a class="btn btn-warning" href="/editcitaspa/<%= data.id %>">Editar</a> <a class="btn btn-danger" href="/editcitaspa/<%= data.id %>">Eliminar</a></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

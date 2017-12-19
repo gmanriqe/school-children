@@ -1,4 +1,4 @@
-<% include ../partials/header %>
+
 <div class="container">
     <h1>listado de mascotas</h1>
     <form class="form">
@@ -17,10 +17,10 @@
     <p class="message"></p>
     <a href="/addPet" class="btn btn-info">Agregar Mascota</a>
     
-    <div class="row">
+    <div class="row"><br>
         <% regs.forEach(function(reg){%>
-            <div class="col-xs-10 col-sm-6 col-md-4">
-                <div class="card">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="card-box">
                     <h3><a href="/book/<%= reg.id %>"><%= reg.tipomascota %></a></h3>
                     <p><%= reg.raza %> - <%= reg.nombre %></p>
                     <div class="actions">

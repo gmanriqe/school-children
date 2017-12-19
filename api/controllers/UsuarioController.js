@@ -49,7 +49,7 @@ module.exports = {
             .find()
             .then((datas)=>{
                 console.log(datas);
-                res.view('usuario/listusu',{datas:datas}); 
+                res.view('usuario/listusu',{datas:datas, layout: 'layout/layout-dashboard'}); 
             })
     },
     fnEditUser:(req,res)=>{

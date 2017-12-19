@@ -18,10 +18,12 @@ module.exports = {
       type: 'datetime',
       defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss")
     },
-    horavisita: 'string',
+    horavisita: {
+      type: 'datetime',
+      defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss"),
+    },
     horarecojo: {
-      type: 'string',
-      defaultsTo: 'no especificado'
+      type: 'datetime'
     },
     pet: {
       model: 'Pet'

@@ -22,7 +22,7 @@ module.exports = {
         Pet
             .find({ sort: 'fecregistro DESC'})
             .then(function(regs){
-                res.view('mascota/listpet',{regs:regs});
+                res.view('mascota/listpet',{regs:regs, layout: 'layout/layout-dashboard'});
             })
             .catch(function(err){
                 console.log(err);

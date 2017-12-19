@@ -67,6 +67,10 @@ module.exports.routes = {
   'POST /formRegisterPromo': { controller: 'PromocionController', action: 'formRegisterPromo' },
   'GET /promocion/editar/:id' : { controller: 'PromocionController', action: 'editar' },
   'POST /promocion/actualizar/:id' : { controller: 'PromocionController', action: 'actualizar'},
+
+   //CITE
+   'GET /listCite': { controller: 'CitaspaController', action: 'fnlistCite' },
+   'GET /editcitaspa/:id': { controller: 'CitaspaController', action: 'editcitaspa' }
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
