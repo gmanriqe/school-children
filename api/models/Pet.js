@@ -27,6 +27,9 @@ module.exports = {
     citasspa: {
       collection: 'Citaspa',
       via: 'pet' //campo por el que relacionas
+    },
+    tipomascota: {
+      model: 'Tipomascota'
     }
   }
 };

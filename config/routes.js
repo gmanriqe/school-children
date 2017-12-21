@@ -46,15 +46,26 @@ module.exports.routes = {
   'POST /formLoginUser': { controller: 'UsuarioController', action: 'fnFormLoginUser' },
   'GET /listuser': { controller: 'UsuarioController', action: 'fnListUser' },
   'GET /editusu/:id': { controller: 'UsuarioController', action: 'fnEditUser' },
-  'POST /formUpdUsu' : { controller: 'UsuarioController', action: 'fnFormUpdUsu' },
 
-  //PET
+  'POST /formUpdUsu/:id' : { controller: 'UsuarioController', action: 'fnFormUpdUsu' },
+  'GET /deletusu/:id': { controller: 'UsuarioController', action: 'fnDeleteUsuario' },
+
+  //PET & TIPOMASCOTA
   'GET /listPet': { controller: 'PetController', action: 'fnListPet' },
   'GET /addPet': { controller: 'PetController', action: 'fnAddPet' },
   'POST /formregisterpet': { controller: 'PetController', action: 'formRegisterPet' },
 
+  'GET /detallemascota/:id': { controller: 'PetController', action: 'detailpet' },
+  
+  'GET /pet/:id/edit': { controller: 'PetController', action: 'editpet' },
+  'POST /pet/:id/update': { controller: 'PetController', action: 'updatepet' },
+  'GET /pet/:id/delete': { controller: 'PetController', action: 'deletepet' },
+
+  'GET /formtipomascota': { controller: 'PetController', action: 'formtipomascota' },
+  'POST /insertartipomascota': { controller: 'PetController', action: 'insertartipomascota' },
+
   //SEARCH AJAX
-  'POST /searchAjax': { controller: 'PetController', action: 'fnSearchAjax' },
+  'POST /searchAjax': { controller: 'PetController', action: 'fnSearchPetNameAjax' },
 
   //HISTORIAL
   'GET /listHistoriaClinica': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinica' },
@@ -68,10 +79,14 @@ module.exports.routes = {
   'POST /formRegisterPromo': { controller: 'PromocionController', action: 'formRegisterPromo' },
   'GET /promocion/editar/:id' : { controller: 'PromocionController', action: 'editar' },
   'POST /promocion/actualizar/:id' : { controller: 'PromocionController', action: 'actualizar'},
+  'GET /promocion/:id/eliminar': { controller: 'PromocionController', action: 'eliminarpromocion'},
 
    //CITE
-   'GET /listCite': { controller: 'CitaspaController', action: 'fnlistCite' },
-   'GET /editcitaspa/:id': { controller: 'CitaspaController', action: 'editcitaspa' }
+   'GET /citasdeldia': { controller: 'CitaspaController', action: 'fnlistCite' },
+   'GET /formcitaspa': { controller: 'CitaspaController', action: 'formcitaspa' },
+   'GET /citaspa/:id/edit': { controller: 'CitaspaController', action: 'editcitaspa' },
+   'POST /citaspa/:id/actualizar': { controller: 'CitaspaController', action: 'actualizarcitaspa' },
+   'POST /insertarcita': { controller: 'CitaspaController', action: 'insertarcita' },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

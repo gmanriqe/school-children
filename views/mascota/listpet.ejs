@@ -19,32 +19,28 @@
                             <div class="col-xs-10 col-md-10">
                                 <input type="text" name="nombre" id="nombre" class="form-control">
                             </div>
-                            <div class="col-xs-1 col-md-2">
+                            <div class="col-xs-2 col-md-2">
                                 <button type="submit" class="btn btn-info" name="button">Buscar</button>
                             </div>
                         </div>
                     </div>
                 </form>
+                <p class="message"></p>
             </div>
         </div>
-    </div>
-    
-    <p class="message"></p>
-    
-    
+    </div>    
     <div class="row">
         <% regs.forEach(function(reg){%>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    
-                        <h3><a href="/book/<%= reg.id %>"><%= reg.tipomascota %></a></h3>
-                        <p>Nombre: <%= reg.nombre %></p>
-                        <p>Raza: <%= reg.raza %> </p>
+                        <h3><a href="/detallemascota/<%= reg.id %>"><%= reg.tipomascota.nombre %></a></h3>
+                        <span>Nombre: <%= reg.nombre %></span><br>
+                        <span>Raza: <%= reg.raza %> </span><br><br>
                         <div class="actions">
-                            <a href="/book/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
-                            <a href="/book/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                            <a href="/pet/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
+                            <a href="/pet/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +48,6 @@
         <% }) %>
     </div>
 </div>
-
 <script
 src="https://code.jquery.com/jquery-3.2.1.min.js"
 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -63,18 +58,29 @@ crossorigin="anonymous">
     function onReady() {
     $(".form").on("submit", function(e) {
         var nombre = $("#nombre").val();
-        console.log(nombre);
         $.post(
         "/searchAjax",
         {
              nombre: nombre
         },
         function(data) {
-            console.log(data+'vista');
-            $(".message").html(data);
-        }
-        );
-
+            var list='';
+            data.forEach(element => {
+                // for (var key in element) {
+                //     console.log(key);
+                //     list += '<p>'+element[key]+'</p>'+'</br>';
+                // }
+                console.log(element);
+              list += '<div class="card-box">'
+                    + '<h3>' + '<a>' + element.tipomascota.nombre + '</a>' + '</h3>'
+                    + '<span>Nombre: ' + element.nombre + '<span>' + '</br>'
+                    + '<span>Raza: ' + element.raza + '<span>' + '</br></br>'
+                    + '<div class="actions"> <a href="/pet/2/edit" style="margin-right: 1em">Editar</a> <a href="/pet/2/delete" style="margin-right: 1em" class="text-danger">Eliminar</a></div>'
+                    + '</div>';
+            });
+            console.log(typeof list);
+            $(".message").html(list);
+        });
         e.preventDefault();
     });
     }

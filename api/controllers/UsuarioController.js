@@ -29,14 +29,12 @@ module.exports = {
     fnFormLoginUser:(req,res)=>{
         Usuario
             .findOne({ usuario:req.body.usuario,contrasena:req.body.contrasena})
+
             .then(function(data){
-                if(!data) return res.view('usuario/login', {layout:'layout/layout-dashboard', error: 'Usuario o contraseña invalidos'});
+                if(!data) return res.view('usuario/login', {error: 'Usuario o contraseña invalidos'});
                 //corregir codigo ya que todos redireccionan a la misma vista
-                if(data.tipousuario == 'ad'){
-                    res.view('usuario/viewadmin',{layout:'layout/layout-dashboard'});
-                }else {
-                    res.view('usuario/viewadmin',{layout:'layout/layout-dashboard'});
-                }
+                if(data.tipousuario == 'ad' || data.tipousuario == 'em') return res.view('usuario/viewadmin',{layout: 'layout/layout-dashboard'});
+                
             })
             .catch(function(err){
                 console.log(err);
@@ -58,7 +56,7 @@ module.exports = {
             })
     },
     fnFormUpdUsu:(req,res)=>{
-       var filtro = { id :  req.params.id} 
+        var filtro = { id:req.params.id } 
         var campos = {      
             nombre:req.body.nombre,
             direccion:req.body.direccion,
@@ -71,6 +69,18 @@ module.exports = {
             .update(filtro, campos)
             .then((regs)=>{
                 // res.send({mensaje:"Municipio actualizado con éxito."});
+                res.redirect('/listuser');
+                // res.view('usuario/listusu',{datas:regs, layout: 'layout/layout-dashboard'}); 
+            })
+            .catch(function(err){
+				res.negotiate(err);
+			});
+    },
+    fnDeleteUsuario: (req, res) => {
+        var id = {id:req.params.id}
+        Usuario
+            .destroy(id)
+            .then((reg)=>{
                 res.redirect('/listuser');
             })
     }

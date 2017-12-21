@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-box">
+                <img src="https://d26lpennugtm8s.cloudfront.net/stores/276/953/products/dasd21-f179bb3a10461a7fc215123634533086-640-0.jpg" alt="">
+                <h3><%= reg.nombre %></h3>
+                <span>Raza: <%= reg.raza%></span><br>
+                <span>Tipo Mascota: <%= reg.tipomascota.nombre%></span><br>
+                <span>Fecha Registro: <%= reg.fecregistro%></span><br>
+                <span>Numero de Registro: <%= reg.id%></span>
+                <div class="actions">
+                    <a href="/pet/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
+                    <a href="/pet/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Historial</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Motivo Consulta</th>
+                                <th>Fecha atencion</th>
+                                <th>Consulta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alergia de piel</td>
+                                <td>Dec 19 2017 00:20:28</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Baño</td>
+                                <td>Dec 19 2017 00:20:28</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

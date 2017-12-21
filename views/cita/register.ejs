@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">
+                    <h3>Registrar Cita</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="/insertarcita" method="POST">
+                        <div class="form-group">
+                            <label for="horavisita">Fecha y Hora de Visita</label>    
+                            <input type="date" name="horavisita" id="horavisita" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet">Mascota</label>
+                            <select name="pet" class="form-control">
+                                <% pets.forEach(function(pet){ %>
+                                <option value="<%= pet.id%>"><%= pet.nombre%></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="promocion">Promoción</label>
+                            <select name="promocion" class="form-control">
+                                <% proms.forEach(function(prom){ %>
+                                <option value="<%= prom.id%>"><%= prom.nombrepromocion%></option>
+                                <% }) %>
+                            </select>
+                        </div> 
+                        <!-- <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                        </div> 
+                        <div class="form-group">
+                            <label for="usuario">Nombre Usuario</label>
+                            <input type="text" class="form-control" name="usuario" placeholder="Nombre Usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" class="form-control" name="contrasena" placeholder="Contraseña">
+                        </div>  -->
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success pull-right" value="Grabar">   
+                        </div>                           
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>

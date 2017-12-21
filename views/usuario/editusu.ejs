@@ -5,7 +5,7 @@
                 <h3 >Edición Usuario</h3>
             </div>
             <div class="panel-body">
-                <form class="register__form" action="/formUpdUsu" method="POST">
+                <form class="register__form" action="/formUpdUsu/<%= regs.id%>" method="POST">
                     <div class="form-group">
                         <label for="nombre">nombre</label>
                         <input class="form-control" id="nombre" type="text" name="nombre" value="<%= regs.nombre%>"autofocus required/>

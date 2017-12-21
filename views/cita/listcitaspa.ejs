@@ -2,7 +2,7 @@
     <div class="row">
         <div class="panel-default">
             <div class="panel-heading">
-                <a href="" class="btn btn-primary">Nuevo</a>
+                <a href="/formcitaspa" class="btn btn-primary">Nuevo</a>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -28,11 +28,11 @@
                         <% datas.forEach((data)=> {%>
                         <tr>
                             <!-- <td><%= data.tipousuario%></td> -->
-                            <td><%= datas[0].pet.nombre %></td>
-                            <td><%= datas[0].promocion.nombrepromocion %></td>
+                            <td><%= data.pet.nombre %></td>
+                            <td><%= data.promocion.nombrepromocion %></td>
                             <!-- <td><%= data.fecregistro%></td> -->
                             <td><%= data.horavisita%></td>
-                            <td><a class="btn btn-warning" href="/editcitaspa/<%= data.id %>">Editar</a> <a class="btn btn-danger" href="/editcitaspa/<%= data.id %>">Eliminar</a></td>
+                            <td><a class="btn btn-warning" href="/citaspa/<%= data.id %>/edit">Editar</a> <a class="btn btn-danger" href="/editcitaspa/<%= data.id %>">Eliminar</a></td>
                         </tr>
                         <% }) %>
                     </tbody>

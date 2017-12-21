@@ -12,7 +12,7 @@ module.exports = {
                 // habilitado: true
             })
             .then(function(regs){
-                // console.log(regs);
+                console.log(regs.length);
                 res.view('promociones/listpromo',{regs:regs, layout: 'layout/layout-dashboard', messages: req.flash('info')});
             })
     },
@@ -60,7 +60,14 @@ module.exports = {
                 // res.view('promociones/listpromo',{regs:regs, messages: req.flash('info') });
                 res.redirect('/listRegisterPromo');
             })
-            console.log(campos);
+    },
+    eliminarpromocion: (req, res)=>{
+        var id = {id:req.params.id}
+        Promocion
+            .destroy(id)
+            .then((reg)=>{
+                res.redirect('/listRegisterPromo');
+            })
     }
 };
 

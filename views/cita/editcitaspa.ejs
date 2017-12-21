@@ -2,10 +2,10 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Editar Promoción</h3>
+                    <h3>Editar Cita</h3>
                 </div>
                 <div class="panel-body">
-                        <form action="/promocion/actualizar/<%= regs.id %>" method="POST">
+                        <form action="/citaspa/<%= regs.id %>/actualizar" method="POST">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-4 col-md-2">
@@ -19,10 +19,10 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-4 col-md-2">
-                                        <label for="nombre">Nombre Mascota</label>
+                                        <label for="pet">Nombre Mascota</label>
                                     </div>
                                     <div class="col-xd-8 col-md-10">
-                                        <input type="text" name="nombre" id="nombre" class="form-control" value="<%= regs.pet.nombre %>"required>
+                                        <input type="text" name="pet" id="pet" class="form-control" value="<%= regs.pet.id %>"required>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +32,9 @@
                                         <label for="nombrepromocion">Promoción</label>
                                     </div>
                                     <div class="col-xd-8 col-md-10">
-                                        <!-- <input type="text" name="nombrepromocion" id="nombrepromocion" class="form-control" value="<%= regs.promocion.nombrepromocion %>"required> -->
-                                        <select name="nombrepromocion" id="nombrepromocion"  class="form-control">
+                                        <select name="promocion" id="promocion"  class="form-control">
                                             <% proms.forEach(function(prom){%>
-                                            <option value="<%= prom.nombrepromocion %>"><%= prom.nombrepromocion %></option>
+                                            <option value="<%= prom.id %>"><%= prom.nombrepromocion %></option>
                                             <% }) %>
                                         </select>
                                     </div>

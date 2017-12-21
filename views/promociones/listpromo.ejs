@@ -13,24 +13,40 @@
         </div>
     </div>
     <div class="row">
-        <div class="panel panel-default">
+        <div class="panel-default">
             <div class="panel-heading">
                 <h3>Promociones Vigentes</h3>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel-default">
+            <div class="panel-heading">
+                <strong>Ordenar por:</strong>
+                <span class="pull-right">
+                    <a href="">Activos |</a>
+                    <a href="">Desactivos</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
             <div class="panel-body">
-                    <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Promoción</th>
-                                    <th>Descripción</th>
-                                    <!-- <th>Fec. Creación</th> -->
-                                    <th>Precio (S/.)</th>
-                                    <th>Habilitado</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% regs.forEach(function(reg){ %>
+                <% if(regs.length > 0) {%>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Promoción</th>
+                            <th>Descripción</th>
+                            <!-- <th>Fec. Creación</th> -->
+                            <th>Precio (S/.)</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% regs.forEach(function(reg){ %>
                                 <tr>
                                     <td><%=reg.nombrepromocion %></td>
                                     <td><%= reg.descripcion %></td>
@@ -43,12 +59,15 @@
                                     <% } %>
                                     <td>
                                         <a href="/promocion/editar/<%= reg.id %>" class="btn btn-warning">Editar</a> &nbsp;&nbsp;
-                                        <a href="/promocion/eliminar/<%= reg.id %>" class="btn btn-danger">Eliminar</a>
+                                        <a href="/promocion/<%= reg.id%>/eliminar" class="btn btn-danger">Eliminar</a>
                                     </td>
                                 </tr>
-                                <% }) %>
-                            </tbody>
-                        </table>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                        <img src="/images/monkey-notprom.png" alt="">
+                <% }%>
             </div>
         </div>
     </div>
