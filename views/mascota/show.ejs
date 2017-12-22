@@ -2,7 +2,12 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card-box">
-                <img src="https://d26lpennugtm8s.cloudfront.net/stores/276/953/products/dasd21-f179bb3a10461a7fc215123634533086-640-0.jpg" alt="">
+
+                <% if(reg.urlfoto) {%>
+                    <img src="/images/mascotas/avatars/<%= reg.urlfoto%>" alt="">
+                <%} else {%>
+                    <img src="https://d26lpennugtm8s.cloudfront.net/stores/276/953/products/dasd21-f179bb3a10461a7fc215123634533086-640-0.jpg" alt="">
+                <% } %>
                 <h3><%= reg.nombre %></h3>
                 <span>Raza: <%= reg.raza%></span><br>
                 <span>Tipo Mascota: <%= reg.tipomascota.nombre%></span><br>

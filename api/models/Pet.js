@@ -25,6 +25,9 @@ module.exports = {
       type: 'datetime',
       defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss")
     },
+    urlfoto: {
+      type: 'string'
+    },
     historiasclinicas: {
       collection: 'Historiaclinica',
       via: 'pet'

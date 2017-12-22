@@ -41,6 +41,10 @@ module.exports = {
             })
     },
     formRegisterPet: (req, res) => {
+    req.file('urlfoto').upload({
+        dirname: '../../assets/images/mascotas/avatars'
+    },function (err, uploadedFiles){
+        if (err) return console.log(err);
         var registroPet = {
             propietario: req.body.propietario,
             tipomascota: req.body.tipomascota,
@@ -48,15 +52,18 @@ module.exports = {
             raza: req.body.raza,
             sexo: req.body.sexo
         }
+        if(uploadedFiles.length > 0) {
+            registroPet['urlfoto'] = uploadedFiles[0].fd.split('/').pop();
+        }
         Pet
             .create(registroPet)
-            .then(function(regs){
-                res.redirect('/listPet');
+            .then((regs) => {
+                console.log(regs);
             })
-            .catch(function(err){
+            .catch((err) => {
                 console.log(err);
             })
-
+    });
     },
     detailpet: function(req, res){
         var id = { id:req.params.id }
