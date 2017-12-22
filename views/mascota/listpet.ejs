@@ -30,22 +30,33 @@
         </div>
     </div>    
     <div class="row">
-        <% regs.forEach(function(reg){%>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                
-            <div class="panel panel-default">
-                <div class="panel-body">
-                        <h3><a href="/detallemascota/<%= reg.id %>"><%= reg.tipomascota.nombre %></a></h3>
-                        <span>Nombre: <%= reg.nombre %></span><br>
-                        <span>Raza: <%= reg.raza %> </span><br><br>
-                        <div class="actions">
-                            <a href="/pet/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
-                            <a href="/pet/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
-                        </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Mascota</th>
+                                    <th>Nombre Mascota</th>
+                                    <th>Raza</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% regs.forEach(function(reg){%>
+                                <tr>
+                                    <td><a href="/detallemascota/<%= reg.id %>"><%= reg.tipomascota.nombre %></a></td>
+                                    <td><%= reg.nombre %></td>
+                                    <td> <%= reg.raza %> </td>
+                                    <td></td>
+                                    <td><a href="/pet/<%= reg.id %>/edit" style="margin-right: 1em">Editar</a>
+                                        <a href="/pet/<%= reg.id %>/delete" style="margin-right: 1em" class="text-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        <% }) %>
     </div>
 </div>
 <script
@@ -66,13 +77,6 @@ crossorigin="anonymous">
         function(data) {
             var list='';
             data.forEach(element => {
-                // for (var key in element) {
-                //     console.log(key);
-                //     list += '<p>'+element[key]+'</p>'+'</br>';
-                // }
-                console.log(element);
-
-                
               list += '<div class="card-box">'
                     + '<h3>' + '<a href="">' + element.tipomascota.nombre + '</a>' + '</h3>'
                     + '<span>Propietario: ' + element.propietario.nombre + '<span>' + '</br>'

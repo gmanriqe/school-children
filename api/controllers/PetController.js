@@ -67,11 +67,17 @@ module.exports = {
     },
     detailpet: function(req, res){
         var id = { id:req.params.id }
-        Pet
-            .findOne(id)
-            .populate('tipomascota')
+        Pet.findOne(id).populate('tipomascota')
             .then((reg)=>{
-                res.view('mascota/show', {reg:reg, layout: 'layout/layout-dashboard'})
+                var historialMascota = Historiaclinica.find().where({ 'pet': req.params.id})
+                    .then((historialMascota)=>{
+                        console.log(reg);
+                        console.log(historialMascota);
+                        res.view('mascota/show', {reg:reg, historialMascota:historialMascota, layout: 'layout/layout-dashboard'})
+                    })
+                    .catch(function(err){
+                        console.log(err);
+                    })
             })
             .catch(function(err){
                 console.log(err);
@@ -125,6 +131,7 @@ module.exports = {
             .then(function(reg){
                 //falta ajustar
                 console.log(reg);
+                res.redirect('/addPet');
             })
     }
 };

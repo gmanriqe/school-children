@@ -28,7 +28,7 @@ module.exports = {
     urlfoto: {
       type: 'string'
     },
-    historiasclinicas: {
+    historiaclinicas: {
       collection: 'Historiaclinica',
       via: 'pet'
     },

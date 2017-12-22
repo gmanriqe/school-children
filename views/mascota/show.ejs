@@ -4,9 +4,9 @@
             <div class="card-box">
 
                 <% if(reg.urlfoto) {%>
-                    <img src="/images/mascotas/avatars/<%= reg.urlfoto%>" alt="">
+                    <img src="/images/mascotas/avatars/<%= reg.urlfoto%>" alt=""/>
                 <%} else {%>
-                    <img src="https://d26lpennugtm8s.cloudfront.net/stores/276/953/products/dasd21-f179bb3a10461a7fc215123634533086-640-0.jpg" alt="">
+                    <img src="https://d26lpennugtm8s.cloudfront.net/stores/276/953/products/dasd21-f179bb3a10461a7fc215123634533086-640-0.jpg" alt=""/>
                 <% } %>
                 <h3><%= reg.nombre %></h3>
                 <span>Raza: <%= reg.raza%></span><br>
@@ -20,9 +20,12 @@
             </div>
         </div>
 
+        
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <a href="/register" class="btn btn-primary pull-right">+ Nuevo</a>
+                    <div class="clearfix"></div>
                     <h3>Historial</h3>
                 </div>
                 <div class="panel-body">
@@ -35,16 +38,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% historialMascota.forEach((hm)=> {%>
                             <tr>
-                                <td>Alergia de piel</td>
-                                <td>Dec 19 2017 00:20:28</td>
-                                <td>12</td>
+                                <td><%= hm.motivoconsulta%></td>
+                                <td><%= hm.fecatencion%></td>
+                                <td><%= hm.precioconsulta%></td>
                             </tr>
-                            <tr>
-                                <td>Baño</td>
-                                <td>Dec 19 2017 00:20:28</td>
-                                <td>12</td>
-                            </tr>
+                            <% }) %>
                         </tbody>
                     </table>
                 </div>

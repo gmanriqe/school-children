@@ -37,7 +37,7 @@ module.exports = {
         Propietario
             .create(data)
             .then((reg) => {
-                console.log(reg);
+                res.redirect('/addPet');
             })
     }
 };
