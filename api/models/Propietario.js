@@ -6,8 +6,33 @@
 */
 
 module.exports = {
-
+  tableName: 'Propietario',
   attributes: {
+    id: {
+      primaryKey: true,
+      autoincrement: true,
+      type: 'integer',
+      unique: true,
+    },
+    nombre: {
+      type: 'string',
+      size: 150
+    },
+    direccion: {
+      type: 'string',
+      size: 80
+    },
+    numerodocumento: {
+      type: 'integer'
+    },
+    telefono: 'integer',
+    pets: {
+      collection: 'Pet',
+      via: 'propietario'
+    },
+    tipodoc: {
+      model: 'Tipodocumento'
+    }
 
   }
 };

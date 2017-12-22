@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="panel-default">
+            <div class="panel-heading">
+                <a href="/formpropietarios" class="btn btn-primary">Nuevo</a>
+                
+                <div class="btn-toolbar">
+                    <!-- <div class="btn-group"> -->
+                        <br><button class="btn btn-sm btn-bg btn-default"><i class="fa fa-search"></i>&nbsp;Buscar Propietario</button>
+                    <!-- </div> -->
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Propietarios de Mascotas</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Dni</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% regs.forEach(function(reg){ %>
+                            <tr>
+                                <td><%= reg.nombre%></td>
+                                <td><%= reg.direccion%></td>
+                                <td><%= reg.numerodocumento%></td>
+                                <td><%= reg.telefono%></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

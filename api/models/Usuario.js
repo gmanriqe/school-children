@@ -38,7 +38,7 @@ module.exports = {
       size: '2',
       defaultsTo: 'em'
     },
-    activo: {
+    habilitado: {
       type: 'boolean',
       defaultsTo: '1'
     },

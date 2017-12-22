@@ -54,9 +54,7 @@ module.exports.routes = {
   'GET /listPet': { controller: 'PetController', action: 'fnListPet' },
   'GET /addPet': { controller: 'PetController', action: 'fnAddPet' },
   'POST /formregisterpet': { controller: 'PetController', action: 'formRegisterPet' },
-
   'GET /detallemascota/:id': { controller: 'PetController', action: 'detailpet' },
-  
   'GET /pet/:id/edit': { controller: 'PetController', action: 'editpet' },
   'POST /pet/:id/update': { controller: 'PetController', action: 'updatepet' },
   'GET /pet/:id/delete': { controller: 'PetController', action: 'deletepet' },
@@ -87,6 +85,11 @@ module.exports.routes = {
    'GET /citaspa/:id/edit': { controller: 'CitaspaController', action: 'editcitaspa' },
    'POST /citaspa/:id/actualizar': { controller: 'CitaspaController', action: 'actualizarcitaspa' },
    'POST /insertarcita': { controller: 'CitaspaController', action: 'insertarcita' },
+
+   //PROPIETARIOS
+   'GET /listarpropietarios': { controller: 'PropietarioController', action: 'listarPropietarios' },
+   'GET /formpropietarios': { controller: 'PropietarioController', action: 'formpropietarios' },
+   'POST /insertarpropietario': { controller: 'PropietarioController', action: 'insertarpropietario' },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

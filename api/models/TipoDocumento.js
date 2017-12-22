@@ -1,24 +1,28 @@
 /**
-* TipoMascota.js
+* TipoDocumento.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
 module.exports = {
-  tableName: 'Tipomascota',
+  tableName: 'Tipodocumento',
   attributes: {
     id: {
       primaryKey: true,
-      autoincrement: true,
       type: 'integer',
-      unique: true,
+      autoIncrement: true,
+      unique: true
     },
-    nombre: 'string',
-    pets: {
-      collection: "Pet",
-      via: "tipomascota"
+    nombre: {
+      type: 'string',
+      size: 30
     },
+    habilitado: 'boolean',
+    propietarios: {
+      collection: 'Propietario',
+      via: 'tipodoc'
+    }
   }
 };
 

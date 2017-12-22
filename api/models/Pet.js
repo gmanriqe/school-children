@@ -4,7 +4,7 @@
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
-
+var moment = require('moment');
 module.exports = {
   tableName: 'Pet',
   attributes: {
@@ -17,19 +17,27 @@ module.exports = {
     tipomascota: 'string',
     nombre: 'string',
     raza: 'string',
+    sexo: {
+      type: 'string',
+      size: 6
+    },
     fecregistro: {
-      type: 'date'
+      type: 'datetime',
+      defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss")
     },
     historiasclinicas: {
       collection: 'Historiaclinica',
-      via: 'pet' //campo por el que relacionas
+      via: 'pet'
     },
     citasspa: {
       collection: 'Citaspa',
-      via: 'pet' //campo por el que relacionas
+      via: 'pet'
     },
     tipomascota: {
       model: 'Tipomascota'
+    },
+    propietario: {
+      model: 'Propietario'
     }
   }
 };

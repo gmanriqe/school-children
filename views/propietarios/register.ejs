@@ -1,47 +1,11 @@
 <div class="container">
     <div class="row">
-        <div class="panel-default">
-            <div class="panel-heading">
-                <a href="/formtipomascota" class="btn btn-primary">+ Tipo Mascota</a>
-                <a href="/formpropietarios" class="btn btn-primary">+ Propietario</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>Registrar Mascota</h3>
+                <h3>Registrar Propietario de Mascota</h3>
             </div>
             <div class="panel-body">
-                <form action="/formregisterpet" method="POST">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2">
-                                <label for="propietario">Propietario</label>
-                            </div>
-                            <div class="col-xd-8 col-md-10">
-                                <select name="propietario" id="propietario" class="form-control">
-                                    <% props.forEach(function(prop){%>
-                                    <option value="<%= prop.id %>"><%= prop.nombre %></option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2">
-                                <label for="tipomascota">Tipo mascota</label>
-                            </div>
-                            <div class="col-xd-8 col-md-10">
-                                <select name="tipomascota" id="tipomascota" class="form-control">
-                                    <% regs.forEach(function(reg){%>
-                                    <option value="<%= reg.id %>"><%= reg.nombre %></option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <form action="/insertarpropietario" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-4 col-md-2">
@@ -55,20 +19,44 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-4 col-md-2">
-                                <label for="raza">Raza</label>
+                                <label for="direccion">Dirección</label>
                             </div>
                             <div class="col-xd-8 col-md-10">
-                                <input type="text" name="raza" id="raza" class="form-control" required>
+                                <input type="text" name="direccion" id="direccion" class="form-control" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-4 col-md-2">
-                                <label for="sexo">Sexo</label>
+                                <label for="telefono">Telefono</label>
                             </div>
                             <div class="col-xd-8 col-md-10">
-                                <input type="text" name="sexo" id="sexo" class="form-control" required>
+                                <input type="text" name="telefono" id="telefono" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="tipodoc">Tipo Documento</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <select name="tipodoc" id="tipodoc" class="form-control">
+                                    <% tds.forEach((td)=> { %>
+                                    <option value="<%= td.id %>"><%= td.nombre%></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="numerodocumento">Numero Documento</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <input type="text" name="numerodocumento" id="numerodocumento" class="form-control" required>
                             </div>
                         </div>
                     </div>

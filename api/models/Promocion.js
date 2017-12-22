@@ -26,7 +26,7 @@ module.exports = {
     price: 'float',
     citaspa: {
       collection: 'Citaspa',
-      via: 'promocion' //campo por el que relacionas
+      via: 'promocion'
     },
     habilitado: {
       type: "boolean",

@@ -10,7 +10,9 @@ module.exports = {
         Pet
             .find({nombre: req.body.nombre})
             .populate('tipomascota')
+            .populate('propietario')
             .then(function(data){
+                console.log(data);
                 res.json(data);
                 // console.log(data[0].nombre+'controller');
             })
@@ -30,18 +32,21 @@ module.exports = {
             })
     },
     fnAddPet: (req, res) => {
-        TipoMascota
-            .find()
-            .then(function(regs){
-                res.view('mascota/register', { regs:regs, layout: 'layout/layout-dashboard'})
+        TipoMascota.find().exec(function(err, regs){
+                if(err) return console.log(err)
+                Propietario.find().exec(function(err, props){
+                    if(err) return console.log(err)
+                    res.view('mascota/register', { regs:regs,props:props, layout: 'layout/layout-dashboard'})
+                })
             })
     },
     formRegisterPet: (req, res) => {
         var registroPet = {
+            propietario: req.body.propietario,
             tipomascota: req.body.tipomascota,
             nombre: req.body.nombre,
             raza: req.body.raza,
-            fecregistro: req.body.fecregistro
+            sexo: req.body.sexo
         }
         Pet
             .create(registroPet)
@@ -59,7 +64,6 @@ module.exports = {
             .findOne(id)
             .populate('tipomascota')
             .then((reg)=>{
-                console.log(reg)
                 res.view('mascota/show', {reg:reg, layout: 'layout/layout-dashboard'})
             })
             .catch(function(err){
@@ -68,20 +72,15 @@ module.exports = {
     },
     editpet: (req, res) => {
         var id = {id:req.params.id}
-        Pet.findOne(id).populate('tipomascota').exec(function(err, reg){
+        Pet.findOne(id).populate('tipomascota').populate('propietario').exec(function(err, reg){
+            if(err) return console.log(err);
             TipoMascota.find().exec(function(err, pets){
+                if(err) return console.log(err);
                 console.log(reg);
                 console.log(pets);
                 res.view('mascota/edit',{reg:reg, pets:pets, layout: 'layout/layout-dashboard'})
             })
         })
-            // .then((reg)=> {
-            //     console.log(reg);
-            //     res.view('mascota/edit',{reg:reg, layout: 'layout/layout-dashboard'})
-            // })
-            // .catch(function(err){
-            //     console.log(err);
-            // })
     },
     updatepet: (req, res)=>{
         var filtro = {id:req.params.id}
@@ -89,6 +88,7 @@ module.exports = {
             tipomascota: req.body.tipomascota,
             nombre: req.body.nombre,
             raza: req.body.raza,
+            sexo: req.body.sexo
         }
         Pet
             .update(filtro, data)
@@ -110,6 +110,7 @@ module.exports = {
     formtipomascota: function(req, res){
         res.view('mascota/tipomascota',{ layout: 'layout/layout-dashboard' });
     },
+
     insertartipomascota: function(req, res){
         var nombre = {nombre:req.body.nombre}
         TipoMascota
