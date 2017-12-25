@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="card-box">
+                <h1>Historial Clinico - <%= regs.nombre%></h1>
+                <form action="/formhistoria/<%= regs.id%>" method="POST">
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="veterinario">Medico Veterinario</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <select name="veterinario" id="veterinario" class="form-control">
+                                    <% uservets.forEach((vet)=> { %>
+                                    <option value="<%= vet.id %>"><%= vet.nombre %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="motivoconsulta">Motivo consulta</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <input type="text" name="motivoconsulta" id="motivoconsulta" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="receta">Receta</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <textarea name="receta" id="receta" cols="30" rows="10" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <label for="precioconsulta">Consulta (S/.)</label>
+                            </div>
+                            <div class="col-xd-8 col-md-10">
+                                <input type="number" name="precioconsulta" id="precioconsulta" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <input type="submit" class="btn btn-success" value="Guardar">
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>

@@ -71,8 +71,6 @@ module.exports = {
             .then((reg)=>{
                 var historialMascota = Historiaclinica.find().where({ 'pet': req.params.id})
                     .then((historialMascota)=>{
-                        console.log(reg);
-                        console.log(historialMascota);
                         res.view('mascota/show', {reg:reg, historialMascota:historialMascota, layout: 'layout/layout-dashboard'})
                     })
                     .catch(function(err){

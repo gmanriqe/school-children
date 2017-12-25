@@ -10,16 +10,19 @@ module.exports = {
     
     fnFormUser:(req, res)=>{
        var usuario = {
-           nombre:req.body.nombre,
-           direccion:req.body.direccion,
-           telefono:req.body.telefono,
-           email:req.body.email,
-           usuario:req.body.usuario,
-           contrasena:req.body.contrasena
+           tipousuario: req.body.tipousuario,
+           nombre: req.body.nombre,
+           fecnacimiento: req.body.fecnacimiento,
+           dni: req.body.dni,
+           telefono: req.body.telefono,
+           usuario: req.body.usuario,
+           contrasena: req.body.contrasena,
+           habilitado: req.body.habilitado
        }
        Usuario
             .create(usuario)
             .then((regs)=>{
+                console.log(regs);
                 res.redirect('/login');
             })
             .catch((err)=>{
@@ -40,9 +43,13 @@ module.exports = {
                 console.log(err);
             })
     },
-    fnListUser:(req,res)=>{
+    fnListaMedicoVeterinario:(req,res)=>{
         Usuario
             .find()
+            .where({ 
+                'tipousuario':'ve'
+                // 'habilitado':{"contains": 1}
+            })
             .then((datas)=>{
                 res.view('usuario/listusu',{datas:datas, layout: 'layout/layout-dashboard'}); 
             })

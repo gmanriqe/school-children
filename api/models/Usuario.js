@@ -17,36 +17,45 @@ module.exports = {
     },
     nombre: {
       type: 'string',
-      size: '100'
+      size: 100
     },
-    direccion: {
-      type: 'string',
-      size: '100'
-    },
-    telefono: 'integer',
-    email: 'email',
-    avatar: {
-      type: 'string',
-      defaultsTo: 'http://transparency.org.tt/wp/wp-content/uploads/2016/12/default-avatar.png'
+    fecnacimiento: {
+      type: 'datetime'
     },
     fecregistro: {
       type: 'datetime',
       defaultsTo : moment().format("YYYY-MM-DD HH:mm:ss")
     },
-    tipousuario: {
-      type: 'string',
-      size: '2',
-      defaultsTo: 'em'
+    dni: {
+      type: 'integer'
     },
     habilitado: {
       type: 'boolean',
-      defaultsTo: '1'
+      defaultsTo: true
+    },
+    tipousuario: {
+      type: 'string',
+      size: 2,
+      defaultsTo: 'em'
+    },
+    direccion: {
+      type: 'string',
+      size: 100
+    },
+    telefono: 'integer',
+    email: 'email',
+    avatar: {
+      type: 'string'
     },
     usuario: {
-      type: 'string',
+      type: 'string'
     },
     contrasena : {
       type: 'string'
+    },
+    historiadetalles : {
+      collection: 'HistoriaDetalle',
+      via: 'veterinario'
     }
 
   }

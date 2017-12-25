@@ -44,7 +44,7 @@ module.exports.routes = {
   'GET /register': { controller: 'UsuarioController', action: 'fnRegisterUsuario' },
   'POST /formuser': { controller: 'UsuarioController', action: 'fnFormUser' },
   'POST /formLoginUser': { controller: 'UsuarioController', action: 'fnFormLoginUser' },
-  'GET /listuser': { controller: 'UsuarioController', action: 'fnListUser' },
+  'GET /listaMedicosVeterinarios': { controller: 'UsuarioController', action: 'fnListaMedicoVeterinario' },
   'GET /editusu/:id': { controller: 'UsuarioController', action: 'fnEditUser' },
 
   'POST /formUpdUsu/:id' : { controller: 'UsuarioController', action: 'fnFormUpdUsu' },
@@ -70,6 +70,8 @@ module.exports.routes = {
   'GET /addHistorialClinico': { controller: 'HistoriaclinicaController', action: 'fnAddHistorialClinico' },
   'POST /formRegisterHistorial': { controller: 'HistoriaclinicaController', action: 'formRegisterHistorial' },
   'GET /historiaclinicadiaria': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinicaDiaria' },
+  'GET /historiaclinita/:id': { controller: 'HistoriaclinicaController', action: 'onehistoriaclinita' },
+  'POST /formhistoria/:id': { controller: 'HistoriaclinicaController', action: 'oneformhistoria' },
 
   //PROMOCION
   'GET /listRegisterPromo' : { controller: 'PromocionController', action: 'listRegisterPromo' },
