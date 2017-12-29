@@ -69,7 +69,10 @@ module.exports.routes = {
   'GET /listHistoriaClinica': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinica' },
   'GET /addHistorialClinico': { controller: 'HistoriaclinicaController', action: 'fnAddHistorialClinico' },
   'POST /formRegisterHistorial': { controller: 'HistoriaclinicaController', action: 'formRegisterHistorial' },
+  
   'GET /historiaclinicadiaria': { controller: 'HistoriaclinicaController', action: 'fnListHistoriaClinicaDiaria' },
+  // 'GET /redhistoriaclinicadiaria': { controller: 'HistoriaclinicaController', action: 'fnRedirect' },
+  
   'GET /historiaclinita/:id': { controller: 'HistoriaclinicaController', action: 'onehistoriaclinita' },
   'POST /formhistoria/:id': { controller: 'HistoriaclinicaController', action: 'oneformhistoria' },
 

@@ -76,14 +76,15 @@ crossorigin="anonymous">
         },
         function(data) {
             var list='';
+            console.log(data);
             data.forEach(element => {
               list += '<div class="card-box">'
-                    + '<h3>' + '<a href="">' + element.tipomascota.nombre + '</a>' + '</h3>'
+                    + '<h3>' + '<a href="/pet/'+element.id+'/edit">' + element.tipomascota.nombre + '</a>' + '</h3>'
                     + '<span>Propietario: ' + element.propietario.nombre + '<span>' + '</br>'
                     + '<span>Documento: ' + element.propietario.numerodocumento + '<span>' + '</br>'
                     + '<span>Nombre: ' + element.nombre + '<span>' + '</br>'
                     + '<span>Raza: ' + element.raza + '<span>' + '</br></br>'
-                    + '<div class="actions"> <a href="/pet/2/edit" style="margin-right: 1em">Editar</a> <a href="/pet/2/delete" style="margin-right: 1em" class="text-danger">Eliminar</a></div>'
+                    + '<div class="actions"> <a href="/pet/'+element.id+'/edit" style="margin-right: 1em">Editar</a> <a href="/pet/2/delete" style="margin-right: 1em" class="text-danger">Eliminar</a></div>'
                     + '</div>';
             });
             console.log(typeof list);

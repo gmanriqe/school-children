@@ -83,9 +83,15 @@ module.exports = {
     },
     editpet: (req, res) => {
         var id = {id:req.params.id}
-        Pet.findOne(id).populate('tipomascota').populate('propietario').exec(function(err, reg){
+        Pet
+            .findOne(id)
+            .populate('tipomascota')
+            .populate('propietario')
+            .exec(function(err, reg){
             if(err) return console.log(err);
-            TipoMascota.find().exec(function(err, pets){
+            TipoMascota
+                .find()
+                .exec(function(err, pets){
                 if(err) return console.log(err);
                 console.log(reg);
                 console.log(pets);

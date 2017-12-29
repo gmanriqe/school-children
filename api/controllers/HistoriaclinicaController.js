@@ -46,21 +46,38 @@ module.exports = {
             })
 
     },
+
+
     fnListHistoriaClinicaDiaria: (req, res) => {
+        var initPage = 1;
         var horaDelDia = new Date();
         var nuevaHoraDelDia = horaDelDia.getFullYear()+'-'+ (horaDelDia.getMonth()+1)+'-'+ horaDelDia.getDate();
         Historiaclinica
-            .find()
-            .where({
-                'fecatencion': {'like': nuevaHoraDelDia+'%'}
-            })
-            .populate('pet')
-            .exec(function cb(err, regs){
-                console.log(regs);
-                if(err) return 
-                res.view('historial/listhistorialdia', { regs:regs, layout: 'layout/layout-dashboard' });
-            })
+            .count()
+            .then((cantidadRegistros)=> {
+                var cantidadPaginas = Math.ceil(cantidadRegistros/3);
 
+                Historiaclinica
+                    .find()
+                    .where({
+                        'fecatencion': {'like': nuevaHoraDelDia+'%'},
+                        sort: 'fecatencion DESC'
+                    })
+                    .populate('pet')
+                    .exec(function(err, regs){
+                        console.log(regs);
+                        console.log(cantidadPaginas);
+                        if(err) return console.log(err);
+                        res.view('historial/listhistorialdia', { 
+                            regs:regs, 
+                            cantidadPaginas:cantidadPaginas,
+                            initPage:initPage,
+                            layout: 'layout/layout-dashboard' 
+                        }
+                    );
+                    })
+            })
+            .catch((err)=> res.negociate(err));
     },
 
 

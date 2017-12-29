@@ -8,13 +8,11 @@
                 <form class="register__form" action="/pet/<%= reg.id%>/update" method="POST">
                     <div class="form-group">
                         <label for="tipomascota">Tipo Mascota</label>
-                        <% pets.forEach(function(pet) {%> 
-                            <% if (reg.tipomascota.nombre == pet.nombre) {%> 
-                                <select name="tipomascota" id="tipomascota" class="form-control">
-                                    <option value="<%= reg.tipomascota.id %>" selected> <%= reg.tipomascota.nombre %> </option>
-                                </select>
-                            <%}%>
-                        <% }) %>      
+                        <select name="tipomascota" id="tipomascota" class="form-control">
+                            <% pets.forEach(function(pet) {%> 
+                            <option value="<%= pet.id %>" <%=reg.tipomascota.nombre === pet.nombre ? "selected" : ""  %> > <%= pet.nombre %> </option>
+                            <% }) %>      
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="nombre">nombre</label>
